@@ -1,8 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const exphbs = require('express-handlebars')
-const Records = require('./models/Record')
-
+const Record = require('./models/Record')
 
 const app = express()
 
@@ -21,7 +20,7 @@ db.once('open', () => {
 app.get('/', (req, res) => {
   Record.find()
     .lean()
-    .then(Records => res.render('index', { Records }))
+    .then(Record => res.render('index', { Record }))
     .catch(err => console.error(err))
 })
 

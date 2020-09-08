@@ -7,19 +7,19 @@ const RecordSchema = new Schema({
   },
   category: {
     type: String,
-    required: true
+    required: false
   },
   date: {
     type: String,
-    required: true
+    required: false
   },
   amount: {
     type: String,
-    required: true
+    required: false
   },
   totalAmount: {
     type: String,
-    required: true
+    required: false
   }
 })
 
