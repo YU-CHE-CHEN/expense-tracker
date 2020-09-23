@@ -1,7 +1,41 @@
-<ul>
-  {{#each Record}}
-  <li>
-    {{this.name}}
-  </li>
-  {{/each}}
-</ul>
+<div class="row justify-content-center sl">
+  <select class="form-control mt-1" id="category" name="category" onchange="this.form.submit()"
+    style="width: 50%; display:inline">
+    <option value="all" selected>類別</option>
+    {{#each categories}}
+    <option value="{{this.categoryName}}" {{#equal this.categoryName ../category }}selected{{/equal}}>
+      {{this.categoryName}}</option>
+    {{/each}}
+  </select>
+</div>
+<div class="row justify-content-center sl">
+  <div class="totalAmount mt-4">
+    <span style="font-size:larger;">總金額:</span>
+    <p class="text-center" style="font-size: 80px; color:orangered" ;>{{totalAmount}}</p>
+  </div>
+</div>
+
+<div class="row justify-content-center sl">
+  <ul class="list-group mt-4">
+    {{#each record}}
+    <li class="list-group-item">
+      <div class="list-top">
+        <p class="category-icon">{{{this.icon}}}</p>
+        <p class="ml-2 list-name">{{this.name}}</p>
+      </div>
+
+      <div class="list-bottom">
+        <div class="ml-2 list-date">{{this.date}} </div>
+        <div class="mr-2 list-amount"> {{this.amount}}</div>
+      </div>
+      <a class="btn btn-secondary" href="./record/{{ this._id }}/edit">edit</a>
+      <form action="/record/{{this._id}}?_method=DELETE" method="POST">
+        <button class="btn btn-secondary" type="submit">刪除</button>
+      </form>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+<div class="row justify-content-center sl">
+  <a href="/records/new" class="btn btn-secondary">新增支出</a>
+</div>
