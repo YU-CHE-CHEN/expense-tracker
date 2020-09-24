@@ -2,10 +2,11 @@
   <select class="form-control mt-1" id="category" name="category" onchange="this.form.submit()"
     style="width: 50%; display:inline">
     <option value="all" selected>類別</option>
-    {{#each categories}}
-    <option value="{{this.categoryName}}" {{#equal this.categoryName ../category }}selected{{/equal}}>
-      {{this.categoryName}}</option>
-    {{/each}}
+    <option value="family">家居物業</option>
+    <option value="transportation">交通出行</option>
+    <option value="entertainment">休閒娛樂</option>
+    <option value="food">餐飲食品</option>
+    <option value="other">其他</option>
   </select>
 </div>
 <div class="row justify-content-center sl">
@@ -15,27 +16,46 @@
   </div>
 </div>
 
-<div class="row justify-content-center sl">
-  <ul class="list-group mt-4">
-    {{#each record}}
+<div class="container mt-5">
+  <div class="list-group">
+
+    {{#each Record}}
     <li class="list-group-item">
-      <div class="list-top">
-        <p class="category-icon">{{{this.icon}}}</p>
-        <p class="ml-2 list-name">{{this.name}}</p>
+
+      <div class="list-left">
+        <div class="category-icon">
+          {{!-- {{#ifEquals this.category 'family'}}<i class="fas fa-home"></i>{{/ifEquals}}
+          {{#ifEquals this.category 'transportation'}}<i class="fas fa-shuttle-van"></i>{{/ifEquals}}
+          {{#ifEquals this.category 'entertainment'}}<i class="fas fa-grin-beam"></i>{{/ifEquals}}
+          {{#ifEquals this.category 'food'}}<i class="fas fa-utensils"></i>{{/ifEquals}}
+          {{#ifEquals this.category 'other'}}<i class="fas fa-pen"></i>{{/ifEquals}} --}}
+        </div>
       </div>
 
-      <div class="list-bottom">
-        <div class="ml-2 list-date">{{this.date}} </div>
-        <div class="mr-2 list-amount"> {{this.amount}}</div>
+      <div class="list-middle">
+        <div class="list-name">{{this.name}}</div>
+        <div class="list-date">{{this.date}}</div>
       </div>
-      <a class="btn btn-secondary" href="./record/{{ this._id }}/edit">edit</a>
-      <form action="/record/{{this._id}}?_method=DELETE" method="POST">
-        <button class="btn btn-secondary" type="submit">刪除</button>
-      </form>
+
+      <div class="list-right">
+        <div class="list-amount ml-2">{{this.amount}}</div>
+      </div>
+      <div class="list-button">
+        <a href="records/{{ this._id }}/edit" class="btn btn-secondary">修改</a>
+        <form action="/records/{{this._id}}?_method=DELETE" method="POST"
+          onsubmit="return confirm('確定刪除 {{this.name}} 嗎？')" style="display: inline;">
+          <button class="btn btn-secondary ml-2" type="submit">刪除</button>
+        </form>
+      </div>
     </li>
+
     {{/each}}
-  </ul>
+
+  </div>
 </div>
-<div class="row justify-content-center sl">
-  <a href="/records/new" class="btn btn-secondary">新增支出</a>
+<div class="row justify-content-center">
+  <div class="mt-3">
+    <a class="btn btn-secondary" href="./records/new">新增支出</a>
+  </div>
+</div>
 </div>
