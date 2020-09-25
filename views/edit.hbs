@@ -5,7 +5,7 @@
         <h7>必填欄位*</h7>
         <h2 class="text-center">請修改你的支出</h2>
       </div>
-      <form action="/records{{record._id}}?_method=PUT" method="POST" style="width: 50%; margin: auto">
+      <form action="/records/{{record._id}}?_method=PUT" method="POST" style="width: 50%; margin: auto">
         <div>
           <label for=" name">名稱＊</label>
           <input type="text" placeholder="請輸入名稱..." name="name" id="name" required value="{{record.name}}">
@@ -16,20 +16,24 @@
             max="{{limitDate}}" required>
         </div>
         <div class="row justify-content-center sl">
-          <label for="category">類別＊</label>
-          <select class="form-control" id="category" name="category" required>
-            {{#each categories}}
-            <option {{#equal this.categoryName ../category}}selected{{/equal}}>{{ this.categoryName }}</option>
-            {{/each}}
-          </select>
-        </div>
-        <div>
-          <label for=" amount">金額＊</label>
-          <input type="number" placeholder="請輸入金額..." name="amount" id="amount" required value="{{record.amount}}">
-        </div>
-        <div class="row justify-content-center sl">
-          <button type="submit" class="btn btn-secondary btn-block">送出</button>
-        </div>
+          <label for="exampleSelect1">支出類別*</label>
+          <div class="input-group col-sm-4">
+            <select class="form-control" id="categoryName" style="cursor: pointer" name="categoryName" required>
+              <option value="" disabled selected>支出類別</option>
+              <option value="fas fa-home">家居物業</option>
+              <option value="fas fa-shuttle-van">交通出行</option>
+              <option value="fas fa-grin-beam">休閒娛樂</option>
+              <option value="fas fa-utensils">餐飲食品</option>
+              <option value="fas fa-pen">其他</option>
+            </select>
+          </div>
+          <div>
+            <label for=" amount">金額＊</label>
+            <input type="number" placeholder="請輸入金額..." name="amount" id="amount" required value="{{record.amount}}">
+          </div>
+          <div class="row justify-content-center sl">
+            <button type="submit" class="btn btn-secondary btn-block">送出</button>
+          </div>
       </form>
     </div>
   </div>

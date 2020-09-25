@@ -19,34 +19,27 @@
 <div class="container mt-5">
   <div class="list-group">
 
-    {{#each Record}}
+    {{#each records}}
     <li class="list-group-item">
 
-      <div class="list-left">
-        <div class="category-icon">
-          {{!-- {{#ifEquals this.category 'family'}}<i class="fas fa-home"></i>{{/ifEquals}}
-          {{#ifEquals this.category 'transportation'}}<i class="fas fa-shuttle-van"></i>{{/ifEquals}}
-          {{#ifEquals this.category 'entertainment'}}<i class="fas fa-grin-beam"></i>{{/ifEquals}}
-          {{#ifEquals this.category 'food'}}<i class="fas fa-utensils"></i>{{/ifEquals}}
-          {{#ifEquals this.category 'other'}}<i class="fas fa-pen"></i>{{/ifEquals}} --}}
+      <i class="{{this.categoryName}}"></i>
+      <div class="list-top">
+        <p class="ml-2 list-name">{{this.name}}</p>
+      </div>
+
+      <div class="list-bottom">
+        <div class="ml-2 list-date">{{this.date}}</div>
+
+        <div class="list-right">
+          <div class="list-amount ml-2">{{this.amount}}</div>
         </div>
-      </div>
-
-      <div class="list-middle">
-        <div class="list-name">{{this.name}}</div>
-        <div class="list-date">{{this.date}}</div>
-      </div>
-
-      <div class="list-right">
-        <div class="list-amount ml-2">{{this.amount}}</div>
-      </div>
-      <div class="list-button">
-        <a href="records/{{ this._id }}/edit" class="btn btn-secondary">修改</a>
-        <form action="/records/{{this._id}}?_method=DELETE" method="POST"
-          onsubmit="return confirm('確定刪除 {{this.name}} 嗎？')" style="display: inline;">
-          <button class="btn btn-secondary ml-2" type="submit">刪除</button>
-        </form>
-      </div>
+        <div class="list-button">
+          <a href="records/{{ this._id }}/edit" class="btn btn-secondary">修改</a>
+          <form action="/records/{{this._id}}?_method=DELETE" method="POST"
+            onsubmit="return confirm('確定刪除 {{this.name}} 嗎？')" style="display: inline;">
+            <button class="btn btn-secondary ml-2" type="submit">刪除</button>
+          </form>
+        </div>
     </li>
 
     {{/each}}

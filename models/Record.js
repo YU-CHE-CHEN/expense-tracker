@@ -5,7 +5,11 @@ const RecordSchema = new Schema({
     type: String,
     required: true
   },
-  category: {
+  categoryName: {
+    type: String,
+    required: false
+  },
+  categoryIcon: {
     type: String,
     required: false
   },
@@ -14,12 +18,18 @@ const RecordSchema = new Schema({
     required: true
   },
   amount: {
-    type: String,
+    type: Number,
     required: true
   },
   totalAmount: {
     type: String,
     required: false
+  },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: 'user',
+    index: true,
+    require: true
   }
 })
 

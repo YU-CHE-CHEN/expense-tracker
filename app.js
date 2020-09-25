@@ -8,6 +8,8 @@ const methodOverride = require('method-override')
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
 }
+const dotenv = require("dotenv");
+dotenv.config();
 
 const routes = require('./routes')
 
