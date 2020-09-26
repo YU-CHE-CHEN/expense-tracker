@@ -30,12 +30,15 @@
       <div class="list-top">
         <p class="ml-2 list-name">{{this.name}}</p>
       </div>
+      <div class="list-top">
+        <p class="ml-2 list-name">店家： {{this.merchant}}</p>
+      </div>
 
       <div class="list-bottom">
-        <div class="ml-2 list-date">{{this.date}}</div>
+        <div class="ml-2 list-date">日期： {{this.date}}</div>
 
         <div class="list-right">
-          <div class="list-amount ml-2">{{this.amount}}</div>
+          <div class="list-amount ml-2">消費金額： {{this.amount}}</div>
         </div>
         <div class="list-button">
           <a href="records/{{ this._id }}/edit" class="btn btn-secondary">修改</a>

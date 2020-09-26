@@ -11,6 +11,10 @@
           <input type="text" placeholder="請輸入名稱..." name="name" id="name" required>
         </div>
         <div>
+          <label for=" name">店家*</label>
+          <input type="text" placeholder="請輸入店家..." name="merchant" id="merchant" required>
+        </div>
+        <div>
           <label for="date">日期＊</label>
           <input type="date" class="form-control" id="date" name="date" value="{{#if date}}{{date}}{{/if}}"
             max="{{limitDate}}" required>
