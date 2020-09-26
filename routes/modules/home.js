@@ -3,6 +3,7 @@ const router = express.Router()
 const Record = require('../../models/Record')
 
 router.get('/', (req, res) => {
+  const userId = req.user._id
   return Record.find()
     .lean()
     .then(records => {
