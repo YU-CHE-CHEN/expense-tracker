@@ -5,6 +5,8 @@ const Category = require('./models/category')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const Handlebars = require('handlebars')
+const session = require('express-session')
+
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -23,6 +25,11 @@ app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
+app.use(session({
+  secret: 'ThisIsMySecret',
+  resave: false,
+  saveUninitialized: true
+}))
 
 
 app.use(routes)
