@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const Handlebars = require('handlebars')
 const session = require('express-session')
+const usePassport = require('./config/passport')
 
 
 if (process.env.NODE_ENV !== 'production') {
@@ -32,6 +33,7 @@ app.use(session({
 }))
 
 
+usePassport(app)
 app.use(routes)
 
 app.listen(3000, () => {
