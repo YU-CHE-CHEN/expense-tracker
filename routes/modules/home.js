@@ -4,7 +4,7 @@ const Record = require('../../models/Record')
 
 router.get('/', (req, res) => {
   const userId = req.user._id
-  return Record.find()
+  return Record.find({ userId })
     .lean()
     .then(records => {
       let totalAmount = 0

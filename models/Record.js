@@ -9,10 +9,6 @@ const RecordSchema = new Schema({
     type: String,
     required: false
   },
-  categoryIcon: {
-    type: String,
-    required: false
-  },
   date: {
     type: String,
     required: true
@@ -20,6 +16,10 @@ const RecordSchema = new Schema({
   amount: {
     type: Number,
     required: true
+  },
+  merchant: {
+    type: String,
+    require: false
   },
   totalAmount: {
     type: String,
