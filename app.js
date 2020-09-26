@@ -4,6 +4,7 @@ const Record = require('./models/Record')
 const Category = require('./models/category')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
+const Handlebars = require('handlebars')
 
 if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config()
@@ -23,13 +24,6 @@ app.set('view engine', 'hbs')
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
-
-app.get('/', (req, res) => {
-  Record.find()
-    .lean()
-    .then(Record => res.render('index', { Record }))
-    .catch(err => console.error(err))
-})
 
 app.use(routes)
 

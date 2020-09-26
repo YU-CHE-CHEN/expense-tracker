@@ -25,7 +25,7 @@ router.post('/new', (req, res) => {
 })
 
 
-
+//Edit
 router.get('/edit', (req, res) => {
   return res.render('edit')
 })
@@ -57,10 +57,11 @@ router.put('/:id', (req, res) => {
       record.amount = amount
       return record.save()
     })
-    .then(() => res.redirect('/home'))
+    .then(() => res.redirect('/'))
     .catch(error => console.log(error))
 })
 
+//delete
 router.delete('/:id', (req, res) => {
   const userId = req.body._id
   const _id = req.params.id

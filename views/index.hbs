@@ -1,13 +1,17 @@
 <div class="row justify-content-center sl">
-  <select class="form-control mt-1" id="category" name="category" onchange="this.form.submit()"
-    style="width: 50%; display:inline">
-    <option value="all" selected>類別</option>
-    <option value="family">家居物業</option>
-    <option value="transportation">交通出行</option>
-    <option value="entertainment">休閒娛樂</option>
-    <option value="food">餐飲食品</option>
-    <option value="other">其他</option>
-  </select>
+  <form action="/filter">
+    <div class="form-group">
+      <select class="form-control form-control-lg" id="filter" name="filter" onchange="submit()" selected="{{filter}}">
+        <option value="ALL" {{#ifEquals filter "ALL"}} selected {{/ifEquals}}>全部</option>
+        <option value="fas fa-home" {{#ifEquals filter "fas fa-home"}} selected {{/ifEquals}}>家居物業</option>
+        <option value="fas fa-shuttle-van" {{#ifEquals filter "fas fa-shuttle-van"}} selected {{/ifEquals}}>交通出行
+        </option>
+        <option value="fas fa-grin-beam" {{#ifEquals filter "fas fa-grin-beam"}} selected {{/ifEquals}}>休閒娛樂</option>
+        <option value="fas fa-utensils" {{#ifEquals filter "fas fa-utensils"}} selected {{/ifEquals}}>餐飲食品</option>
+        <option value="fas fa-pen" {{#ifEquals filter "fas fa-pen"}} selected {{/ifEquals}}>其他</option>
+      </select>
+    </div>
+  </form>
 </div>
 <div class="row justify-content-center sl">
   <div class="totalAmount mt-4">
