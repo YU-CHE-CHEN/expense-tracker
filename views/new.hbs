@@ -1,44 +1,44 @@
 <div class="container">
-  <div class="row">
-    <div class="form-group col-6 mx-auto mt-4">
-      <div class="title ">
-        <h7>必填欄位*</h7>
-        <h2 class="text-center">請輸入你的支出</h2>
-      </div>
-      <form action="/records" method="POST" style="width: 50%; margin: auto">
-        <div>
-          <label for=" name">名稱＊</label>
-          <input type="text" placeholder="請輸入名稱..." name="name" id="name" required>
-        </div>
-        <div>
-          <label for=" name">店家*</label>
-          <input type="text" placeholder="請輸入店家..." name="merchant" id="merchant" required>
-        </div>
-        <div>
-          <label for="date">日期＊</label>
-          <input type="date" class="form-control" id="date" name="date" value="{{#if date}}{{date}}{{/if}}"
-            max="{{limitDate}}" required>
-        </div>
-        <div class="row justify-content-center sl">
-          <label for="exampleSelect1">支出類別*</label>
-          <div class="input-group col-sm-4">
-            <select class="form-control" id="categoryName" style="cursor: pointer" name="categoryName" required>
-              <option value="" disabled selected>支出類別</option>
-              <option value="fas fa-home">家居物業</option>
-              <option value="fas fa-shuttle-van">交通出行</option>
-              <option value="fas fa-grin-beam">休閒娛樂</option>
-              <option value="fas fa-utensils">餐飲食品</option>
-              <option value="fas fa-pen">其他</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label for=" amount">金額＊</label>
-          <input type="number" placeholder="請輸入金額..." name="amount" id="amount" required>
-        </div>
-        <div class="row justify-content-center sl">
-          <button type="submit" class="btn btn-secondary btn-block">新增支出</button>
-      </form>
+  <form action="/records" method="POST" style="width: 30%; margin: auto">
+    <div class="row">
+      <h2 class="text-center">請輸入你的支出</h2>
     </div>
-  </div>
+    <div class="row">
+      <h7 class="text-center" style="color:orangered">必填欄位*</h7>
+    </div>
+
+    <div class="container mt-2">
+      <div class="row" style="padding: 10px">
+        <label for=" name">名稱* </label>
+        <input type="text" placeholder="請輸入名稱..." name="name" id="name" required style="width: 300px">
+      </div>
+      <div class="row" style="padding: 10px">
+        <label for=" name">店家* </label>
+        <input type="text" placeholder="請輸入店家..." name="merchant" id="merchant" required style="width: 300px">
+      </div>
+      <div class="row" style="padding: 10px">
+        <label for="date">日期* </label>
+        <input type="date" id="date" name="date" value="{{#if date}}{{date}}{{/if}}" max="{{limitDate}}" required
+          style="width: 300px">
+      </div>
+      <div class="row" style="padding: 10px">
+        <label for="categoryName">類別* </label>
+        <select id="categoryName" name="categoryName" required style="width: 300px">
+          <option value="" disabled selected>支出類別</option>
+          <option value="fas fa-home">家居物業</option>
+          <option value="fas fa-shuttle-van">交通出行</option>
+          <option value="fas fa-grin-beam">休閒娛樂</option>
+          <option value="fas fa-utensils">餐飲食品</option>
+          <option value="fas fa-pen">其他</option>
+        </select>
+      </div>
+      <div class="row" style="padding: 10px">
+        <label for=" amount">金額* </label>
+        <input type="number" placeholder="請輸入金額..." name="amount" id="amount" required style="width: 300px">
+      </div>
+      <div class="row justify-content-center sl" style="padding: 10px">
+        <button type="submit" class="btn btn-secondary btn-block" style="width: 300px">新增支出</button>
+      </div>
+    </div>
+  </form>
 </div>
